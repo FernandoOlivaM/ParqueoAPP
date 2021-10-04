@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ParqueoApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,7 @@
+{
+  "name": "ParqueoApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
