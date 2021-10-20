@@ -16,7 +16,22 @@ export class AppComponent {
   formFieldsNueva: FormFieldTypes;
   formFieldsForgot:  FormFieldTypes;
 
+  public selectedIndex = 0;
+  public appPages = [
+    {
+      title: 'Home',
+      url: '/tabs',
+      icon: 'home-outline',
+    },
+    {
+      title: 'Scan QR',
+      url: '/qrscan',
+      icon: 'qr-code-outline',
+    }
+  ];
+
   constructor(private ref: ChangeDetectorRef) {
+    this.selectedIndex = 0;
     this.formFieldsLogin = [
       { type: "username", label:"", placeholder: "Ingrese Su usuario"},
       { type: "password", label:"", placeholder: "Ingrese Su contraseña"}
@@ -29,7 +44,10 @@ export class AppComponent {
     return await onAuthUIStateChange;
   }
   ngOnInit() {
-   
+    const path = window.location.pathname.split('/')[1];
+    if (path !== undefined) {
+      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    }
     onAuthUIStateChange((authState, authData) => {
       this.authState = authState;
       this.user = authData as CognitoUserInterface;

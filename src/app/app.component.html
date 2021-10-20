@@ -6,12 +6,43 @@
   </amplify-authenticator> 
 
   <ion-split-pane contentId="content" *ngIf="authState === 'signedin' && user">
-      <ion-menu contentId="content">
-        <div>
-          <amplify-sign-out framework="Ionic" button-text="Cerrar Sesión"></amplify-sign-out>
-      </div>
-      </ion-menu>
+    <ion-menu contentId="content">
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
 
-      <ion-router-outlet id="content" main></ion-router-outlet>
-  </ion-split-pane>
+        <ion-content>
+            <div>
+                <amplify-sign-out framework="Ionic" button-text="Cerrar Sesión"></amplify-sign-out>
+            </div>
+            <div *ngFor="let p of appPages">
+                <ion-menu-toggle *ngIf="p.url" autoHide="false">
+                    <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active">
+                        <ion-icon [name]="p.icon" slot="start"></ion-icon>
+                        <ion-label>{{p.title}}</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <!-- <ng-container *ngIf="p.children"> -->
+                <ion-item button *ngIf="p?.children && p?.children?.length>0" (click)="p.open = !p.open" [class.active-parent]="p.open" detail="false">
+                    <ion-icon slot="start" name="chevron-forward-outline" [ngClass]="{'rotated': p.open, 'parent-icon':true }"></ion-icon>
+
+                    <ion-label>{{p.title}}</ion-label>
+                </ion-item>
+                <ion-list *ngIf="p.open" class="sub-list">
+                    <ion-menu-toggle autoHide="false">
+                        <ion-item class="sub-item" *ngFor="let sub of p.children" [routerLink]="sub.url" routerDirection="root" routerLinkActive="active">
+                            <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+                            <ion-label>{{sub.title}}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+                <!-- </ng-container> -->
+            </div>
+        </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>
 </ion-app>
