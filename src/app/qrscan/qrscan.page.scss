@@ -1,0 +1,30 @@
+.alertError {
+    padding: 20px;
+    background-color: #ff8181;
+    color: white;
+}
+.alertSuccess {
+    padding: 20px;
+    background-color: #5ab300;
+    color: white;
+}
+.alertMissing{
+    padding: 20px;
+    background-color: #00b3a4;
+    color: white;
+}
+.alertWarning{
+    padding: 20px;
+    background-color: #ccc531;
+    color: white;
+  }
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

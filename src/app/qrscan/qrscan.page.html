@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Scan QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class={{Alert_Color}} *ngIf="showAlert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>{{Alert_Status}}</strong>{{Alert_Text}}
+</div>
+<ion-content>
+    <fieldset>
+        <ion-title>Please Scan or Upload the QR ticket</ion-title>
+        <ion-grid>
+            <ion-row>
+                <ion-col size-lg="7" size-md="7" size-sm="6" size="12">
+                    <ion-item>
+                        <ion-input type="text" name="ticket"placeholder="Your Ticket" #ticket value="{{ticektValue}}">
+                        </ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size-lg="2.5" size-md="2.5" size-sm="6" size="12">
+                    <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event)" />
+
+                    <ion-button expand="full" (click)="captureImage()">
+                        <ion-icon slot="start" name="camera"></ion-icon>
+                        Upload QR
+                    </ion-button>
+                </ion-col>
+                <ion-col size-lg="2.5" size-md="2.5" size-sm="6" size="12">
+                    <ion-button expand="full" (click)="startScan()">
+                        <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+                        Scan QR
+                    </ion-button>
+                </ion-col>
+                <ion-col size-lg="12" size-md="12" size-sm="6" size="12">
+                    <ion-button expand="full" (click)="reset()" color="warning" name="ResultScan" *ngIf="scanResult">
+                        <ion-icon slot="start" name="refresh"></ion-icon>
+                        Reset
+                    </ion-button>
+
+                    <video #video [hidden]="!scanActive" width="100%"></video>
+                    <canvas #canvas hidden></canvas>
+                </ion-col>
+
+            </ion-row>
+        </ion-grid>
+    </fieldset>
+</ion-content>
