@@ -21,7 +21,10 @@ const awsmobile = {
     "aws_cognito_password_protection_settings": {
         "passwordPolicyMinLength": 8,
         "passwordPolicyCharacters": []
-    }
+    },
+    "aws_cognito_verification_mechanisms": [
+        "EMAIL"
+    ]
 };
 
 

@@ -1,20 +1,26 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-parqueoapp-dev-162342-authRole",
-      "UnauthRoleArn": "arn:aws:iam::517352650741:role/amplify-parqueoapp-dev-162342-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::517352650741:role/amplify-parqueoapp-dev-162342-authRole",
-      "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-parqueoapp-dev-162342-deployment",
-      "UnauthRoleName": "amplify-parqueoapp-dev-162342-unauthRole",
-      "StackName": "amplify-parqueoapp-dev-162342",
-      "StackId": "arn:aws:cloudformation:us-east-2:517352650741:stack/amplify-parqueoapp-dev-162342/bec9d430-20aa-11ec-8778-062f5d389e14",
-      "AmplifyAppId": "d2ty14z72q819p"
-    },
-    "categories": {
-      "auth": {
-        "parqueoapp4a7ff107": {}
-      }
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-parqueoapp-dev-162342-authRole",
+            "UnauthRoleArn": "arn:aws:iam::517352650741:role/amplify-parqueoapp-dev-162342-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::517352650741:role/amplify-parqueoapp-dev-162342-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-parqueoapp-dev-162342-deployment",
+            "UnauthRoleName": "amplify-parqueoapp-dev-162342-unauthRole",
+            "StackName": "amplify-parqueoapp-dev-162342",
+            "StackId": "arn:aws:cloudformation:us-east-2:517352650741:stack/amplify-parqueoapp-dev-162342/bec9d430-20aa-11ec-8778-062f5d389e14",
+            "AmplifyAppId": "d2ty14z72q819p"
+        },
+        "categories": {
+            "auth": {
+                "parqueoapp4a7ff107": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d2ty14z72q819p",
+                    "type": "cicd"
+                }
+            }
+        }
     }
-  }
 }
