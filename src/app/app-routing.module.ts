@@ -11,9 +11,14 @@ const routes: Routes = [
     loadChildren: () => import('./qrscan/qrscan.module').then( m => m.QrscanPageModule)
   },
   {
+    path: 'parking-view',
+    loadChildren: () => import('./parking-view/parking-view.module').then( m => m.ParkingViewPageModule)
+  },
+  {
     path: 'payment',
-    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentModule)
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
   }
+
 
 ];
 @NgModule({

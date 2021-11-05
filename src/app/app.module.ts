@@ -9,13 +9,14 @@ import { AppComponent } from './app.component';
 //amplify, do not remove
 import {AmplifyUIAngularModule} from "@aws-amplify/ui-angular";
 import { HttpClientModule } from '@angular/common/http';
+import { ParkingViewPageModule } from './parking-view/parking-view.module';
 
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AmplifyUIAngularModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AmplifyUIAngularModule, HttpClientModule, ParkingViewPageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

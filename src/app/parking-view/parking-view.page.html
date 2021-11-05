@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Disponibilidad de parqueos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" *ngFor="let park of parkins | async">
+        
+        <!-- Ocupado -->
+        <ion-card class="ion-text-center" *ngIf="park.Status === 1">
+          <ion-icon size="large" name="car-sport-outline" color="danger"></ion-icon>
+          <ion-card-header>
+            <ion-card-subtitle>Estacionamiento</ion-card-subtitle>
+            <ion-card-title>{{park.Lugar_ID}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        
+        <!-- Disponible -->
+        <ion-card class="ion-text-center" *ngIf="park.Status === 0">
+          <ion-icon size="large" name="car-sport-outline" color="success"></ion-icon>
+          <ion-card-header>
+            <ion-card-subtitle>Estacionamiento</ion-card-subtitle>
+            <ion-card-title>{{park.Lugar_ID}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

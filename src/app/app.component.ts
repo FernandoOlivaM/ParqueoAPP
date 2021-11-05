@@ -27,6 +27,16 @@ export class AppComponent {
       title: 'Scan QR',
       url: '/qrscan',
       icon: 'qr-code-outline',
+    },
+    {
+      title: 'Pago de parqueos',
+      url: '/payment',
+      icon: 'cash-outline',
+    },
+    {
+      title: 'Disponibilidad de parqueos',
+      url: '/parking-view',
+      icon: 'car-outline',
     }
   ];
 
