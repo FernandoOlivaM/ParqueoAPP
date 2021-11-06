@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PaymentPageRoutingModule } from './payment-routing.module';
 
 import { PaymentPage } from './payment.page';
+import { ModalInfoPageModule } from '../modal-info/modal-info.module';
+import { ModalInfoPageRoutingModule } from '../modal-info/modal-info-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PaymentPageRoutingModule
+    PaymentPageRoutingModule,
+    ModalInfoPageRoutingModule,
   ],
   declarations: [PaymentPage]
 })

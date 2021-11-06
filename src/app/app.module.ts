@@ -12,9 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ParkingViewPageModule } from './parking-view/parking-view.module';
 
 
-
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [ AppComponent, ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AmplifyUIAngularModule, HttpClientModule, ParkingViewPageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
