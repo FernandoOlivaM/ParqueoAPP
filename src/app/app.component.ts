@@ -10,11 +10,6 @@ import { FormFieldTypes } from '@aws-amplify/ui-components';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  user: CognitoUserInterface | undefined
-  authState: AuthState;
-  formFieldsLogin: FormFieldTypes;
-  formFieldsNueva: FormFieldTypes;
-  formFieldsForgot:  FormFieldTypes;
 
   public selectedIndex = 0;
   public appPages = [
@@ -40,30 +35,14 @@ export class AppComponent {
     }
   ];
 
-  constructor(private ref: ChangeDetectorRef) {
+  constructor() {
     this.selectedIndex = 0;
-    this.formFieldsLogin = [
-      { type: "username", label:"", placeholder: "Ingrese Su usuario"},
-      { type: "password", label:"", placeholder: "Ingrese Su contraseña"}
-    ];
-    this.formFieldsForgot = [
-      { type: "username", label:"", placeholder: "Ingrese Su usuario"}
-    ];
-  }
-  async ngOnDestroy() {
-    return await onAuthUIStateChange;
   }
   ngOnInit() {
     const path = window.location.pathname.split('/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
-    onAuthUIStateChange((authState, authData) => {
-      this.authState = authState;
-      this.user = authData as CognitoUserInterface;
-      if (!this.ref['destroyed']) {
-        this.ref.detectChanges();
-      }
-    })
+   
   }
 }

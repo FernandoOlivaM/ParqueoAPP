@@ -1,11 +1,6 @@
 <ion-app>
-  <amplify-authenticator framework="Ionic" *ngIf="authState !== 'signedin'" > 
-      <amplify-sign-in header-text="Bienvenido a Parking Go" slot="sign-in" [formFields]="formFieldsLogin"  submitButtonText="Ingresar" resetPasswordText="Restablecela!" forgotPasswordText="Olvidaste tu contraseña?"></amplify-sign-in>
-      <amplify-forgot-password headerText="Olvidaste tu contraseña?" slot="forgot-password" [formFields]="formFieldsForgot" sendButtonText="Enviar"></amplify-forgot-password>
-      <!-- <amplify-require-new-password slot="require-new-password" headerText="Nuevo password requerido!"  ></amplify-require-new-password> -->
-  </amplify-authenticator> 
 
-  <ion-split-pane contentId="content" *ngIf="authState === 'signedin' && user">
+  <ion-split-pane contentId="content" >
     <ion-menu contentId="content">
         <ion-header>
             <ion-toolbar color="primary">
