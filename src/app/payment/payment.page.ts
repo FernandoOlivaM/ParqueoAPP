@@ -14,7 +14,7 @@ export class PaymentPage implements OnInit {
     Fec_Ingreso: Date,
     Ticket_ID: String,
   }
-  place = 0; // lugar de estacionamiento
+  place; // lugar de estacionamiento
   total; // total factura
   cashback = ""; // vuelto 
   amount; // cantidad con la que pago

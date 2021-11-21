@@ -13,7 +13,7 @@
         <ion-item>
           <ion-icon name="location-outline" slot="start"> </ion-icon>
           <ion-label>Lugar de estacionamiento: </ion-label>
-          <ion-input type="number" [(ngModel)]="place"></ion-input>
+          <ion-input id="place" type="number" [(ngModel)]="place"></ion-input>
           <ion-button (click)="search()" expand="block" slot="end">
             Buscar
           </ion-button>
@@ -33,7 +33,7 @@
         <ion-item>
           <ion-icon name="wallet-outline" slot="start"> </ion-icon>
           <ion-label>Monto a pagar: </ion-label>
-          <ion-input type="number" [(ngModel)]="amount"></ion-input>
+          <ion-input id="amount" type="number" [(ngModel)]="amount"></ion-input>
           <ion-button (click)="showModal()" expand="block" slot="end">
             Pagar
           </ion-button>
