@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  
+
   <ion-card class="ion-text-center">
     <img src="../../assets/payment.png" alt="">
     <ion-card-content>
@@ -24,7 +24,7 @@
         </ion-item>
         <ion-item>
           <ion-icon name="hourglass-outline" slot="start"> </ion-icon>
-          <ion-label>Tiempo total: {{ticket.Fec_salida - ticket.Fec_Ingreso}}</ion-label>
+          <ion-label>Tiempo total: {{stayTime}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="cash-outline" slot="start"> </ion-icon>
@@ -32,7 +32,7 @@
         </ion-item>
         <ion-item>
           <ion-icon name="wallet-outline" slot="start"> </ion-icon>
-          <ion-label>Cantidad a agregar: </ion-label>
+          <ion-label>Monto a pagar: </ion-label>
           <ion-input type="number" [(ngModel)]="amount"></ion-input>
           <ion-button (click)="showModal()" expand="block" slot="end">
             Pagar
