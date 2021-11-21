@@ -9,9 +9,6 @@
         </ion-header>
 
         <ion-content>
-            <div>
-                <amplify-sign-out framework="Ionic" button-text="Cerrar Sesión"></amplify-sign-out>
-            </div>
             <div *ngFor="let p of appPages">
                 <ion-menu-toggle *ngIf="p.url" autoHide="false">
                     <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active">
