@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "ba56ecf6-b26c-40b8-b242-900d04ac3075",
+		"name": "ParqueoAPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get lugares",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code of GetLugares\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"const schema = {\r",
+							"    \"SatusCode\": \"number\",\r",
+							"    \"StatusMessage\": \"string\",\r",
+							"    \"Body\": \"array\"\r",
+							"}\r",
+							"pm.test(\"validate schema of GetLugares\", function(){\r",
+							"    pm.expect(tv4.validate(pm.response, schema)).to.be.true;\r",
+							"})\r",
+							"pm.test(\"validate that exist parkins\", () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.Body.length).to.equal(16)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Request\": \"All\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ad6c9l4esl.execute-api.us-east-2.amazonaws.com/Lugar/lugar",
+					"protocol": "https",
+					"host": [
+						"ad6c9l4esl",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Lugar",
+						"lugar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pagar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Ticket_ID\": \"04ee36d8-bf65-4672-a6ee-93bf86afae8d\",\r\n  \"Monto\": 25\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://1a4jnqc5yd.execute-api.us-east-2.amazonaws.com/Pago/pago",
+					"protocol": "https",
+					"host": [
+						"1a4jnqc5yd",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Pago",
+						"pago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllTicket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    \"SatusCode\": \"number\",\r",
+							"    \"StatusMessage\": \"string\",\r",
+							"    \"Body\": \"array\"\r",
+							"}\r",
+							"pm.test(\"validate schema of GetAllTockets\", function(){\r",
+							"    pm.expect(tv4.validate(pm.response, schema)).to.be.true;\r",
+							"})\r",
+							"pm.test(\"validate that exist parkins\", () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.Body.length).to.greaterThan(1)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Request\": \"All\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ohd84j9so7.execute-api.us-east-2.amazonaws.com/GetTicket/getticket",
+					"protocol": "https",
+					"host": [
+						"ohd84j9so7",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"GetTicket",
+						"getticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generatorID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Park_Number\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://k1pnqqmf3k.execute-api.us-east-2.amazonaws.com/QRGenerator/qrgenerator",
+					"protocol": "https",
+					"host": [
+						"k1pnqqmf3k",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"QRGenerator",
+						"qrgenerator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
