@@ -1,48 +1,83 @@
 <ion-app>
-  <amplify-authenticator framework="Ionic" *ngIf="authState !== 'signedin'" > 
-      <amplify-sign-in header-text="Bienvenido a Parking Go" slot="sign-in" [formFields]="formFieldsLogin"  submitButtonText="Ingresar" resetPasswordText="Restablecela!" forgotPasswordText="Olvidaste tu contraseña?"></amplify-sign-in>
-      <amplify-forgot-password headerText="Olvidaste tu contraseña?" slot="forgot-password" [formFields]="formFieldsForgot" sendButtonText="Enviar"></amplify-forgot-password>
-      <!-- <amplify-require-new-password slot="require-new-password" headerText="Nuevo password requerido!"  ></amplify-require-new-password> -->
-  </amplify-authenticator> 
+  <amplify-authenticator framework="Ionic" *ngIf="authState !== 'signedin'">
+    <amplify-sign-in
+      header-text="Bienvenido a Parking Go"
+      slot="sign-in"
+      [formFields]="formFieldsLogin"
+      submitButtonText="Ingresar"
+      resetPasswordText="Restablecela!"
+      forgotPasswordText="Olvidaste tu contraseña?"
+    ></amplify-sign-in>
+    <amplify-forgot-password
+      headerText="Olvidaste tu contraseña?"
+      slot="forgot-password"
+      [formFields]="formFieldsForgot"
+      sendButtonText="Enviar"
+    ></amplify-forgot-password>
+    <!-- <amplify-require-new-password slot="require-new-password" headerText="Nuevo password requerido!"  ></amplify-require-new-password> -->
+  </amplify-authenticator>
 
   <ion-split-pane contentId="content" *ngIf="authState === 'signedin' && user">
     <ion-menu contentId="content">
-        <ion-header>
-            <ion-toolbar color="primary">
-                <ion-title>Menu</ion-title>
-            </ion-toolbar>
-        </ion-header>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
 
-        <ion-content>
-            <div>
-                <amplify-sign-out framework="Ionic" button-text="Cerrar Sesión"></amplify-sign-out>
-            </div>
-            <div *ngFor="let p of appPages">
-                <ion-menu-toggle *ngIf="p.url" autoHide="false">
-                    <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active">
-                        <ion-icon [name]="p.icon" slot="start"></ion-icon>
-                        <ion-label>{{p.title}}</ion-label>
-                    </ion-item>
-                </ion-menu-toggle>
-                <!-- <ng-container *ngIf="p.children"> -->
-                <ion-item button *ngIf="p?.children && p?.children?.length>0" (click)="p.open = !p.open" [class.active-parent]="p.open" detail="false">
-                    <ion-icon slot="start" name="chevron-forward-outline" [ngClass]="{'rotated': p.open, 'parent-icon':true }"></ion-icon>
+      <ion-content>
+        <div>
+          <amplify-sign-out
+            framework="Ionic"
+            button-text="Cerrar Sesión"
+          ></amplify-sign-out>
+        </div>
+        <div *ngFor="let p of appPages">
+          <ion-menu-toggle *ngIf="p.url" autoHide="false">
+            <ion-item
+              [routerLink]="p.url"
+              routerDirection="root"
+              routerLinkActive="active"
+            >
+              <ion-icon [name]="p.icon" slot="start"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <!-- <ng-container *ngIf="p.children"> -->
+          <ion-item
+            button
+            *ngIf="p?.children && p?.children?.length > 0"
+            (click)="p.open = !p.open"
+            [class.active-parent]="p.open"
+            detail="false"
+          >
+            <ion-icon
+              slot="start"
+              name="chevron-forward-outline"
+              [ngClass]="{ rotated: p.open, 'parent-icon': true }"
+            ></ion-icon>
 
-                    <ion-label>{{p.title}}</ion-label>
-                </ion-item>
-                <ion-list *ngIf="p.open" class="sub-list">
-                    <ion-menu-toggle autoHide="false">
-                        <ion-item class="sub-item" *ngFor="let sub of p.children" [routerLink]="sub.url" routerDirection="root" routerLinkActive="active">
-                            <ion-icon [name]="sub.icon" slot="start"></ion-icon>
-                            <ion-label>{{sub.title}}</ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
-                </ion-list>
-                <!-- </ng-container> -->
-            </div>
-        </ion-content>
+            <ion-label>{{ p.title }}</ion-label>
+          </ion-item>
+          <ion-list *ngIf="p.open" class="sub-list">
+            <ion-menu-toggle autoHide="false">
+              <ion-item
+                class="sub-item"
+                *ngFor="let sub of p.children"
+                [routerLink]="sub.url"
+                routerDirection="root"
+                routerLinkActive="active"
+              >
+                <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+                <ion-label>{{ sub.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+          <!-- </ng-container> -->
+        </div>
+      </ion-content>
     </ion-menu>
 
     <ion-router-outlet id="content" main></ion-router-outlet>
-</ion-split-pane>
+  </ion-split-pane>
 </ion-app>
